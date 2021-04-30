@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\SubscriberController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,13 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
+    Route::get('/allArtists', [AuthController:: class, 'showArtist']);
+    Route::get('/getArtist/{id}', [AuthController:: class, 'showArtistById']);
 });
 Route::post('/addContent', [ContentController:: class, 'addContent']);
+Route::post('/subscriber', [SubscriberController:: class, 'subscribe']);
+Route::get('/getContent/{postedBy}', [ContentController:: class, 'showContentByPostedBy']);
+
+;
+
 

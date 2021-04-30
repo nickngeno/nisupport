@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\content;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Validator;
+use DB;
 
 class ContentController extends Controller
 {
@@ -41,5 +43,12 @@ public function addContent(Request $request)
     ], 201);
 
 }
+    public function showContent(){
+        return User::where('category','=','artist')->get();
+    }
+    public function showContentByPostedBy($postedBy){
+        return content::where('postedBy',$postedBy)->get();
+    }
+
 
 }
