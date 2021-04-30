@@ -71,7 +71,7 @@ class AuthController extends Controller
 
      // Get the authenticated User.
 
-    public function userProfile() {
+    public function loggedinUser() {
         return response()->json(auth()->user());
     }
 
