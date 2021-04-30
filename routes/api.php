@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubscriberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -30,5 +31,11 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/loggedinuser', [AuthController::class, 'loggedinUser']);
+    Route::get('/user-profile', [AuthController::class, 'userProfile']);
+    Route::get('/allArtists', [AuthController:: class, 'showArtist']);
+    Route::get('/getArtist/{id}', [AuthController:: class, 'showArtistById']);
 });
 Route::post('/addContent', [ContentController:: class, 'addContent']);
+Route::post('/subscriber', [SubscriberController:: class, 'subscribe']);
+Route::get('/getContent/{postedBy}', [ContentController:: class, 'showContentByPostedBy']);
+

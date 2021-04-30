@@ -34,10 +34,10 @@ class AuthController extends Controller
     //Register User
     public function register(Request $request) {
         $validator = Validator::make($request->all(), [
-            'fullName' => 'required|string|between:2,100',
-            'category' => 'required|string|between:2,100',
+            'firstName' => 'required|string|between:2,100',
+            'lastName' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
-            'password' => 'required|min:6'
+            'password' => 'required|string|min:6'
         ]);
 
         if($validator->fails()){
@@ -71,7 +71,7 @@ class AuthController extends Controller
 
      // Get the authenticated User.
 
-    public function loggedinUser() {
+    public function userProfile() {
         return response()->json(auth()->user());
     }
 
@@ -84,12 +84,6 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => auth()->user()
         ]);
-    }
-    public function showArtist(){
-        return User::where('category','=','artist')->get();
-    }
-    public function showArtistById($id){
-        return User::find($id);
     }
 
 }
