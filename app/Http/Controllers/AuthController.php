@@ -37,7 +37,7 @@ class AuthController extends Controller
             'fullName' => 'required|string|between:2,100',
             'category' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
-            'password' => 'required|string|min:6'
+            'password' => 'required|min:6'
         ]);
 
         if($validator->fails()){
@@ -71,7 +71,7 @@ class AuthController extends Controller
 
      // Get the authenticated User.
 
-    public function userProfile() {
+    public function loggedinUser() {
         return response()->json(auth()->user());
     }
 
