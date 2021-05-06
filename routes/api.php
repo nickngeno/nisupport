@@ -30,8 +30,7 @@ Route::group([
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/loggedinuser', [AuthController::class, 'loggedinUser']);
-    Route::get('/user-profile', [AuthController::class, 'userProfile']);
+    Route::get('/loggedInUser', [AuthController::class, 'loggedInUser']);
     Route::get('/allArtists', [AuthController:: class, 'showArtist']);
     Route::get('/getArtist/{id}', [AuthController:: class, 'showArtistById']);
 });
