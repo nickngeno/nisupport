@@ -64,6 +64,7 @@ class AuthController extends Controller
         return response()->json(['message' => 'User successfully signed out']);
     }
 
+
     //Refresh a token.
     public function refresh() {
         return $this->createNewToken(auth()->refresh());
